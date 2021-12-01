@@ -21,7 +21,10 @@ void main() async {
     print('Error: $e');
   }
 
-  //print('Amount of increases: ' + countIncreases(0, data).toString());
+  print('Amount of increases: ' +
+      countIncreasesBasedOnXBaseValues(0, List.from(data), xBase: 1)
+          .toString());
   print('Amount of increases based on 3 base numbers: ' +
-      countIncreasesBasedOnXBaseValues(0, data, xBase: 3).toString());
+      countIncreasesBasedOnXBaseValues(0, List.from(data), xBase: 3)
+          .toString());
 }
