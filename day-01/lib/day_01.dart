@@ -1,15 +1,5 @@
 int countIncreases(currentCount, List<int> data) {
-  if (data[0] < data[1]) {
-    currentCount++;
-  }
-
-  data.removeAt(0);
-
-  if (data.length > 1) {
-    return countIncreases(currentCount, data);
-  } else {
-    return currentCount;
-  }
+  return countIncreasesBasedOnXBaseValues(currentCount, data, xBase: 1);
 }
 
 int countIncreasesBasedOnXBaseValues(currentCount, List<int> data,

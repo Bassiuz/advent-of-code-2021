@@ -1,28 +1,27 @@
 import 'dart:io';
 import 'dart:convert';
 
-import 'package:day_01/day_01.dart';
+import 'package:day_02/day_02.dart';
 
 void main() async {
   final file = File('bin/input.txt');
-  var data = <int>[];
+  var data = <String>[];
   var lines = file
       .openRead()
       .transform(utf8.decoder) // Decode bytes to UTF-8.
       .transform(LineSplitter()); // Convert stream to individual lines.
   try {
     await for (var line in lines) {
-      data.add(int.parse(line));
+      data.add(line);
     }
-    print('File is now closed.');
   } catch (e) {
     print('Error: $e');
   }
 
-  print('Amount of increases: ' +
-      countIncreasesBasedOnXBaseValues(0, List.from(data), xBase: 1)
+  print('Solution part 1: ' +
+      multiplyHorizontalAndVerticalPoisitionOfCommands(List.from(data))
           .toString());
-  print('Amount of increases based on 3 base numbers: ' +
-      countIncreasesBasedOnXBaseValues(0, List.from(data), xBase: 3)
-          .toString());
+
+  print('Solution part 2: ' +
+      getLocationResultWithAim(List.from(data)).toString());
 }
