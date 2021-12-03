@@ -2,7 +2,7 @@ int multiplyHorizontalAndVerticalPoisitionOfCommands(List<String> commands) {
   var x = 0;
   var y = 0;
 
-  for (String command in commands) {
+  for (var command in commands) {
     if (command.startsWith('forward')) {
       x += int.parse(command.split(' ')[1]);
     } else if (command.startsWith('down')) {
@@ -20,7 +20,7 @@ int getLocationResultWithAim(List<String> commands) {
   var y = 0;
   var aim = 0;
 
-  for (String command in commands) {
+  for (var command in commands) {
     if (command.startsWith('forward')) {
       x += int.parse(command.split(' ')[1]);
       y += int.parse(command.split(' ')[1]) * aim;
