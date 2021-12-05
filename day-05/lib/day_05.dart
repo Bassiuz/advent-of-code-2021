@@ -1,5 +1,5 @@
 int findOverlappingPointsInLines(List<String> lines) {
-  var points = <String>[];
+  var points = <int>[];
 
   for (var line in lines) {
     if (isNonDiagonalLine(line)) {
@@ -11,7 +11,7 @@ int findOverlappingPointsInLines(List<String> lines) {
 }
 
 int findOverlappingPointsInLinesAndDiagnoals(List<String> lines) {
-  var points = <String>[];
+  var points = <int>[];
 
   for (var line in lines) {
     if (isNonDiagonalLine(line)) {
@@ -37,8 +37,8 @@ bool isNonDiagonalLine(String line) {
   return startPointX == endPointX || startPointY == endPointY;
 }
 
-Iterable<String> pointsFromLine(String line) {
-  var points = <String>[];
+Iterable<int> pointsFromLine(String line) {
+  var points = <int>[];
 
   var startPoint = line.split(' -> ')[0];
   var endPoint = line.split(' -> ')[1];
@@ -63,15 +63,15 @@ Iterable<String> pointsFromLine(String line) {
 
   for (var x = startPointX; x <= endPointX; x++) {
     for (var y = startPointY; y <= endPointY; y++) {
-      points.add('$x,$y');
+      points.add(x * 10000 + y);
     }
   }
 
   return points;
 }
 
-Iterable<String> pointsFromDiagonal(String line) {
-  var points = <String>[];
+Iterable<int> pointsFromDiagonal(String line) {
+  var points = <int>[];
 
   var startPoint = line.split(' -> ')[0];
   var endPoint = line.split(' -> ')[1];
@@ -100,13 +100,13 @@ Iterable<String> pointsFromDiagonal(String line) {
     } else {
       y = startPointY - i;
     }
-    points.add('$x,$y');
+    points.add(x * 10000 + y);
   }
 
   return points;
 }
 
-int countDoubleValuesInArray(List<String> array) {
+int countDoubleValuesInArray(List<int> array) {
   var doubleValues = 0;
 
   var doublesAlreadyCounted = [];
