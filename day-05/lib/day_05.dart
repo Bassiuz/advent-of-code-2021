@@ -107,18 +107,12 @@ Iterable<int> pointsFromDiagonal(String line) {
 }
 
 int countDoubleValuesInArray(List<int> array) {
-  var doubleValues = 0;
+  var list = List.from(array);
+  var listLength = list.length;
 
-  var doublesAlreadyCounted = [];
+  var set = new Set<int>.from(array);
+  set.forEach((i) => list.remove(i));
 
-  for (var i = 0; i < array.length; i++) {
-    for (var j = i + 1; j < array.length; j++) {
-      if (array[i] == array[j] && !doublesAlreadyCounted.contains(array[i])) {
-        doublesAlreadyCounted.add(array[i]);
-        doubleValues++;
-      }
-    }
-  }
-
-  return doubleValues;
+  var finalSetOfCoubles = new Set<int>.from(list);
+  return finalSetOfCoubles.length;
 }
