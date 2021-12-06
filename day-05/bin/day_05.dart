@@ -24,5 +24,6 @@ Future<void> main(List<String> arguments) async {
 
   var stopwatch2 = Stopwatch()..start();
   print('Part 2: ${findOverlappingPointsInLinesAndDiagnoals(data)}');
-  print('findOverlappingPointsInLines() executed in ${stopwatch2.elapsed}');
+  print(
+      'findOverlappingPointsInLinesAndDiagnoals() executed in ${stopwatch2.elapsed}');
 }

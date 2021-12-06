@@ -108,11 +108,8 @@ Iterable<int> pointsFromDiagonal(String line) {
 
 int countDoubleValuesInArray(List<int> array) {
   var list = List.from(array);
-  var listLength = list.length;
-
   var set = new Set<int>.from(array);
   set.forEach((i) => list.remove(i));
-
   var finalSetOfCoubles = new Set<int>.from(list);
   return finalSetOfCoubles.length;
 }
