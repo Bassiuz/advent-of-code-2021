@@ -29,7 +29,6 @@ int target(String input) {
     var middlepoint = first + (dif ~/ 2);
 
     if (i + 1 > inputArray.length / 2) {
-      print('let this count for half');
       totalMiddlepoints += middlepoint ~/ 2;
     } else {
       totalMiddlepoints += middlepoint;
