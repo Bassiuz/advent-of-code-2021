@@ -15,7 +15,7 @@ int costOfFuelForAllToMedian(String input) {
   return totalFuel;
 }
 
-int costOfFuelForAllToAverage(String input) {
+int target(String input) {
   var inputArray = input.split(',').map((s) => int.parse(s)).toList();
   inputArray.sort();
 
@@ -24,12 +24,26 @@ int costOfFuelForAllToAverage(String input) {
   for (var i = 0; i < (inputArray.length / 2); i++) {
     var first = inputArray[i];
     var last = inputArray[inputArray.length - i - 1];
+
     var dif = last - first;
     var middlepoint = first + (dif ~/ 2);
-    totalMiddlepoints += middlepoint;
+
+    if (i + 1 > inputArray.length / 2) {
+      print('let this count for half');
+      totalMiddlepoints += middlepoint ~/ 2;
+    } else {
+      totalMiddlepoints += middlepoint;
+    }
   }
 
-  var average = (totalMiddlepoints / (inputArray.length / 2)).round();
+  return (totalMiddlepoints / (inputArray.length / 2)).round();
+}
+
+int costOfFuelForAllToAverage(String input) {
+  var inputArray = input.split(',').map((s) => int.parse(s)).toList();
+  inputArray.sort();
+
+  var average = target(input);
 
   var totalFuel = 0;
 
