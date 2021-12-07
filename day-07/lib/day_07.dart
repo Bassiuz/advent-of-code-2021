@@ -31,8 +31,6 @@ int costOfFuelForAllToAverage(String input) {
 
   var average = (totalMiddlepoints / (inputArray.length / 2)).round();
 
-  print(average);
-
   var totalFuel = 0;
 
   inputArray.forEach((element) {
