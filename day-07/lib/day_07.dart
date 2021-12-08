@@ -38,11 +38,32 @@ int target(String input) {
   return (totalMiddlepoints / (inputArray.length / 2)).round();
 }
 
+int targetWithAverage(String input) {
+  var inputArray = input.split(',').map((s) => int.parse(s)).toList();
+  inputArray.sort();
+
+  var totalMiddlepoints = 0;
+
+  for (var i = 0; i < (inputArray.length / 2); i++) {
+    var first = inputArray[i];
+    var last = inputArray[inputArray.length - i - 1];
+    var middlepoint = (first + last) ~/ 2;
+
+    if (i + 1 > inputArray.length / 2) {
+      totalMiddlepoints += middlepoint ~/ 2;
+    } else {
+      totalMiddlepoints += middlepoint;
+    }
+  }
+
+  return (totalMiddlepoints / (inputArray.length / 2)).round();
+}
+
 int costOfFuelForAllToAverage(String input) {
   var inputArray = input.split(',').map((s) => int.parse(s)).toList();
   inputArray.sort();
 
-  var average = target(input);
+  var average = targetWithAverage(input);
 
   var totalFuel = 0;
 
