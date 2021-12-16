@@ -21,6 +21,10 @@ Future<void> main(List<String> arguments) async {
 
   print('Length of shortest route to end: ${shortestRoute(data)}');
 
+  var stopwatch = Stopwatch()..start();
+
   print(
-      'Length of shortest route to end: ${shortestRoute(buildFullMap(data, 5))}');
+      'Length of shortest route to end of expanded map: ${shortestRoute(buildFullMap(data, 5))}');
+  print(
+      'Length of shortest route to end of expanded map() executed in ${stopwatch.elapsed}');
 }
