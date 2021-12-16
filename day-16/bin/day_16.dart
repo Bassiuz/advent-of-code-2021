@@ -20,6 +20,10 @@ Future<void> main(List<String> arguments) async {
     print('Error: $e');
   }
 
-  var versionTotal = returnVersionTotalFromData(data);
+  var versionTotal = returnTotalFromDataType(data);
   print('adding all the version totals (part 1) = $versionTotal');
+  var value =
+      returnTotalFromDataType(data, dataType: 'value', recursive: false);
+
+  print('value of all operators (part 2) = $value');
 }
